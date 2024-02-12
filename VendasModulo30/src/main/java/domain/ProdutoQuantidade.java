@@ -67,6 +67,12 @@ public class ProdutoQuantidade {
 		
 	}
 	
+	public void remover (Integer quantidade) {
+		this.quantidade -= quantidade; //decresce a quantidade
+		BigDecimal novoValor = this.produto.getValor().multiply(BigDecimal.valueOf(quantidade));
+		this.valorTotal = this.valorTotal.subtract(novoValor);
+	}
+	
 	
 	
 	
