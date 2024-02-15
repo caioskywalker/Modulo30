@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
+import javax.naming.PartialResultException;
+
 import annotation.ColunaTabela;
 import annotation.TipoChave;
 import dao.Persistente;
@@ -117,13 +119,54 @@ public class Venda implements Persistente{
 		}
 		recalcularValorTotalVenda();
 	}
+
 	
 	public void removerTodosProdutos() {
 		validarStatus();
 		produtos.clear();
 		valorTotal = BigDecimal.ZERO;
 	}
-
+	
+	
+	public Integer getQuantidadeTotalProdutos() {
+		//Soma a quantidade de todos os objetos de ProdutoQuantidade
+		//int result = produtos.stream()
+		//		.reduce(0,(countResult, prod) -> countResult + prod.getQuantidade(), (a, b) -> a + b);
+		
+		//Outra forma de fazer o código através de mapToInt
+		//int result = produtos.stream()
+        //.mapToInt(ProdutoQuantidade::getQuantidade) outra alternativa (p -> p.getQuantidade) // Converte os objetos Produto para int
+        //.sum(); // Soma os valores inteiros diretamente
+		
+		//ou... 
+		//.mapToInt(ProdutoQuantidade::getQuantidade)
+		//.reduce(0,Integer::sum);
+		
+		
+		int result = produtos.stream()
+				.reduce(0,(acumulador,prod) -> acumulador + prod.getQuantidade(),Integer::sum);
+		
+		
+		/**Sintaxe do método reduce:
+		 * 0: É o primeiro argumento do reduce, é o valor inicial do resultado acumulador
+		 * (countResult,prod) -> countResult + prod.getQuantidade... Função aplicada a cada elemento do stream. Recebe dois argumentos, um valor parcial até o momento countResult com a quantidade obtidao do elemento atual prod.getQuantidade()
+		 * É uma expressão lambda que descreve como os elementos da stream serão combinados para produzir o resultado final.
+		 * 
+		 * countResult: valor acumulado ate o momento
+		 * prod: objeto ProdutoQuantidade atual
+		 * A função retorna a soma do valor acumulado
+		 * Integer::sum : Este é o segundo parâmetro da função reduce(), que é uma referência ao método estático sum da classe Integer. Ele especifica como combinar dois valores do tipo Integer. 
+		 * Neste caso, é uma maneira concisa de dizer que queremos somar dois números inteiros. Esta é uma alternativa mais curta à expressão lambda (a, b) -> a + b.
+		 * 
+		 * Assinatura utilizada
+		 * <U> U reduce(U identity, BiFunction<U, ? super T, U> accumulator, BinaryOperator<U> combiner)
+		 * 
+		 * 	identity: O valor inicial para o resultado da redução.
+		 *	accumulator: Uma função que combina um acumulador parcial e um elemento da stream para produzir um novo valor do tipo U.
+		 *	combiner: Uma função que combina dois resultados parciais quando a redução é realizada em paralelo.	 * 
+		 */
+		return result;
+	}
 	
 	
 	
