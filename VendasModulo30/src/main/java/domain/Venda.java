@@ -149,10 +149,10 @@ public class Venda implements Persistente{
 		
 		/**Sintaxe do método reduce:
 		 * 0: É o primeiro argumento do reduce, é o valor inicial do resultado acumulador
-		 * (countResult,prod) -> countResult + prod.getQuantidade... Função aplicada a cada elemento do stream. Recebe dois argumentos, um valor parcial até o momento countResult com a quantidade obtidao do elemento atual prod.getQuantidade()
+		 * (acumulador,prod) -> acumulador + prod.getQuantidade... Função aplicada a cada elemento do stream. Recebe dois argumentos, um valor parcial até o momento countResult com a quantidade obtidao do elemento atual prod.getQuantidade()
 		 * É uma expressão lambda que descreve como os elementos da stream serão combinados para produzir o resultado final.
 		 * 
-		 * countResult: valor acumulado ate o momento
+		 * acumulador: valor acumulado ate o momento
 		 * prod: objeto ProdutoQuantidade atual
 		 * A função retorna a soma do valor acumulado
 		 * Integer::sum : Este é o segundo parâmetro da função reduce(), que é uma referência ao método estático sum da classe Integer. Ele especifica como combinar dois valores do tipo Integer. 
