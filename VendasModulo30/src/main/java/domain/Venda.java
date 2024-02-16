@@ -1,12 +1,11 @@
 package domain;
 
+
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
-
-import javax.naming.PartialResultException;
 
 import annotation.ColunaTabela;
 import annotation.TipoChave;
@@ -128,6 +127,8 @@ public class Venda implements Persistente{
 	}
 	
 	
+	
+	
 	public Integer getQuantidadeTotalProdutos() {
 		//Soma a quantidade de todos os objetos de ProdutoQuantidade
 		//int result = produtos.stream()
@@ -167,6 +168,7 @@ public class Venda implements Persistente{
 		 */
 		return result;
 	}
+	
 	
 	
 	
@@ -219,7 +221,7 @@ public class Venda implements Persistente{
 	}
 	
 	public Long getId() {
-		// TODO Auto-generated method stub
+		
 		return idVenda;
 	}
 
