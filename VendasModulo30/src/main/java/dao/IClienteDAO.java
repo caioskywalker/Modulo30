@@ -1,5 +1,8 @@
 package dao;
 
-public interface IClienteDAO {
+import dao.generic.IGenericDAO;
+import domain.Cliente;
+
+public interface IClienteDAO extends IGenericDAO<Cliente, Long>{
 
 }

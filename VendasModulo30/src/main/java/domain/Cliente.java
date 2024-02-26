@@ -8,7 +8,7 @@ import dao.Persistente;
 @Tabela("tb_cliente")
 public class Cliente implements Persistente {
 	
-	@ColunaTabela(dbName = "id_cliente", setJavaName = "setId")
+	@ColunaTabela(dbName = "id", setJavaName = "setId")
 	private Long idCliente;
 	
 	@ColunaTabela(dbName = "nome" , setJavaName = "setNome")
@@ -18,7 +18,7 @@ public class Cliente implements Persistente {
 	@ColunaTabela(dbName = "cpf" , setJavaName = "setCpf")
 	private Long cpf;
 	
-	@ColunaTabela(dbName = "telefone" , setJavaName = "setTelefone")
+	@ColunaTabela(dbName = "tel" , setJavaName = "setTelefone")
 	private Long telefone;
 	
 	@ColunaTabela(dbName = "endereco" , setJavaName = "setEndereco")

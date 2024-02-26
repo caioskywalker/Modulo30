@@ -11,7 +11,7 @@ import dao.Persistente;
 public class Produto implements Persistente {
 
 	
-	@ColunaTabela(dbName = "id_produto" , setJavaName = "setId")
+	@ColunaTabela(dbName = "id" , setJavaName = "setId")
 	private Long idProduto;
 	
 	@TipoChave("getCodigo")

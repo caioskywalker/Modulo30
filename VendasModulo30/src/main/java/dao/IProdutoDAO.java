@@ -1,5 +1,8 @@
 package dao;
 
-public interface IProdutoDAO {
+import dao.generic.IGenericDAO;
+import domain.Produto;
+
+public interface IProdutoDAO extends IGenericDAO<Produto, String> {
 
 }

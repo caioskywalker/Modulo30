@@ -26,7 +26,7 @@ public class Venda implements Persistente{
 		}
 	}
 	
-	@ColunaTabela(dbName = "id_venda", setJavaName = "setId")
+	@ColunaTabela(dbName = "id", setJavaName = "setId")
 	private Long idVenda;
 	
 	@TipoChave("getCodigo")
@@ -83,7 +83,7 @@ public class Venda implements Persistente{
 			recalcularValorTotalVenda(); //Recalcula o valor total da venda
 	}
 	
-	private void recalcularValorTotalVenda() {
+	public void recalcularValorTotalVenda() {
 		//validarStatus();
 		BigDecimal valorTotal = BigDecimal.ZERO; //Zera o valor total local
 		for(ProdutoQuantidade prod : this.produtos) {// o prod percorre o HashSet produtos

@@ -8,7 +8,7 @@ import annotation.Tabela;
 @Tabela("tb_produto_quantidade")
 public class ProdutoQuantidade {
 	
-	@ColunaTabela(dbName = "id_quantidade_produto" , setJavaName = "setId")
+	@ColunaTabela(dbName = "id" , setJavaName = "setId")
 	private Long idQuantidadeProduto;
 	
 	private Produto produto;
