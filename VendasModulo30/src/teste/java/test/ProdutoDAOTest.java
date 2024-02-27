@@ -26,7 +26,7 @@ public class ProdutoDAOTest {
 	public ProdutoDAOTest() {
 		produtoDao = new ProdutoDAO();
 	}
-	
+	/*
 	@After
 	public void end() throws ExceptionDao {
 		Collection<Produto> list = produtoDao.buscarTodos();
@@ -38,7 +38,9 @@ public class ProdutoDAOTest {
 				e.printStackTrace();
 			}
 		});
-	}
+		
+	}*/
+	
 
 	private Produto criarProduto(String codigo) throws ExceptionTipoChaveNaoEncontrada, ExceptionDao {
 		Produto produto = new Produto();
@@ -46,13 +48,15 @@ public class ProdutoDAOTest {
 		produto.setDescricao("Produto 1");
 		produto.setNome("Produto 1");
 		produto.setValor(BigDecimal.TEN);
+		produto.setMarca("Nestle");
 		produtoDao.cadastrar(produto);
 		return produto;
 	}
-	
+
 	private void excluir(String valor) throws ExceptionDao {
 		this.produtoDao.excluir(valor);
 	}
+	
 	
 	@Test
 	public void pesquisar() throws ExceptionMaisDeUmRegistro, ExceptionTable, ExceptionDao, ExceptionTipoChaveNaoEncontrada {
@@ -60,7 +64,7 @@ public class ProdutoDAOTest {
 		Assert.assertNotNull(produto);
 		Produto produtoDB = this.produtoDao.consultar(produto.getCodigo());
 		Assert.assertNotNull(produtoDB);
-		excluir(produtoDB.getCodigo());
+		//excluir(produtoDB.getCodigo());
 	}
 	
 	@Test
@@ -110,5 +114,6 @@ public class ProdutoDAOTest {
 		assertTrue(list.size() == 0);
 		
 	}
+	
 
 }

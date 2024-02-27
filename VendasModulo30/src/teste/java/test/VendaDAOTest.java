@@ -164,7 +164,6 @@ public class VendaDAOTest {
 		assertFalse(retorno1);
 		assertTrue(venda.getStatus().equals(Status.INICIADA));
 	} 
-	
 	@Test
 	public void removerProduto() throws ExceptionTipoChaveNaoEncontrada, ExceptionMaisDeUmRegistro, ExceptionTable, ExceptionDao {
 		String codigoVenda = "A7";
@@ -191,7 +190,6 @@ public class VendaDAOTest {
 		assertTrue(vendaConsultada.getValorTotal().equals(valorTotal));
 		assertTrue(vendaConsultada.getStatus().equals(Status.INICIADA));
 	} 
-	
 	@Test
 	public void removerApenasUmProduto() throws ExceptionTipoChaveNaoEncontrada, ExceptionMaisDeUmRegistro, ExceptionTable, ExceptionDao {
 		String codigoVenda = "A8";
@@ -218,7 +216,6 @@ public class VendaDAOTest {
 		assertTrue(vendaConsultada.getValorTotal().equals(valorTotal));
 		assertTrue(vendaConsultada.getStatus().equals(Status.INICIADA));
 	} 
-	
 	@Test
 	public void removerTodosProdutos() throws ExceptionTipoChaveNaoEncontrada, ExceptionMaisDeUmRegistro, ExceptionTable, ExceptionDao {
 		String codigoVenda = "A9";
@@ -298,6 +295,7 @@ public class VendaDAOTest {
 		cliente.setEstado("SP");
 		cliente.setNumero(10);
 		cliente.setTelefone(1199999999L);
+		cliente.setIdade(25L);
 		clienteDao.cadastrar(cliente);
 		return cliente;
 	}
